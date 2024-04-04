@@ -1,0 +1,25 @@
+{% extends "djangoapp/base.html" %}
+
+{% block content %}
+<h1>Profile page: {{ user.username }}</h1>
+
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label>Change Avatar:</label>
+        <input type="file" name="avatar">
+    </div>
+
+    <div>
+        <button type="submit">Save Changes</button>
+    </div>
+</form>
+{% endblock %}
