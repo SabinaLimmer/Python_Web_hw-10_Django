@@ -19,7 +19,6 @@ def signupuser(request):
 
     return render(request, 'users/signup.html', context={"form": RegisterForm()})
 
-
 def loginuser(request):
     if request.user.is_authenticated:
         return redirect(to='djangoapp:main')

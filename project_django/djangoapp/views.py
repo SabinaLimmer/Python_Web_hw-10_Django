@@ -6,7 +6,10 @@ from .models import Author, Quote, Tag
 from django.contrib.auth import logout
 
 def main(request):
-    return render(request, 'djangoapp/main.html')
+    quotes = Quote.objects.all()
+    print(f"my quotes {quotes}")
+    return render(request, 'djangoapp/main.html', {'quotes': quotes})
+    # return render(request, 'djangoapp/main.html')
 
 @login_required
 def add_author(request):

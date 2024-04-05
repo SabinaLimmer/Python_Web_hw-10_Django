@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px;">
+    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px; padding-right: 30px;">
         <ul>
             <li><a href="/" role="button">Home</a></li>
             <li><a href="{% url 'djangoapp:add_author' %}" role="button">Add Author</a></li>
@@ -21,7 +21,6 @@
         <ul>
             {% if user.is_authenticated %}
             <li>Welcome <b>{{ user.username }}!</b></li>
-            <li><a href="{% url 'users:profile' %}" role="button">Profile</a></li>
             <li><a href="{% url 'users:logout' %}" role="button">Logout</a></li>
             {% else %}
             <li><a href="{% url 'users:signup' %}" role="button">Sign Up</a></li>
